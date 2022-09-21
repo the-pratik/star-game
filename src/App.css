@@ -94,7 +94,7 @@
 }
 
 .star:after {
-  content: '\01F7C6';
+  content: '\2605';
   font-size: 45px;
 }
 
