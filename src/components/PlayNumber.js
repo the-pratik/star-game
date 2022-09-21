@@ -12,7 +12,7 @@ const PlayNumber = (props) => (
 
 // Color Theme
 const colors = {
-	available: 'lightgray',
+	available: '#fff2b4',
 	used: 'lightgreen',
 	wrong: 'lightcoral',
 	candidate: 'deepskyblue',
