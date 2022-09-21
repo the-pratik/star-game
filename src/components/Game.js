@@ -4,6 +4,7 @@ import utils from '../math-utils';
 import StarsDisplay from './StarsDisplay';
 import PlayNumber from './PlayNumber';
 import PlayAgain from './PlayAgain';
+import StartGame from './StartGame';
 
 const useGameState = () => {
 	const [stars, setStars] = useState(utils.random(1, 9));
@@ -11,16 +12,17 @@ const useGameState = () => {
 	const [candidateNums, setCandidateNums] = useState([]);
 	const [moves, setMoves] = useState(0);
 	const [secondsLeft, setSecondsLeft] = useState(10);
+	const [newGame, setNewGame] = useState(0);
 
 	useEffect(() => {
-		if (secondsLeft > 0 && availableNums.length > 0) {
+		if (secondsLeft > 0 && availableNums.length > 0 && newGame === 1) {
 			const timerId = setTimeout(
 				() => setSecondsLeft((prevSecondsLeft) => prevSecondsLeft - 1),
 				1000
 			);
 			return () => clearTimeout(timerId);
 		}
-	}, [secondsLeft, availableNums]);
+	}, [secondsLeft, availableNums, newGame]);
 
 	const setGameState = (newCandidateNums) => {
 		if (utils.sum(newCandidateNums) !== stars) {
@@ -36,7 +38,7 @@ const useGameState = () => {
 		}
 	};
 
-	return { stars, availableNums, candidateNums, secondsLeft, moves, setGameState };
+	return { stars, availableNums, candidateNums, secondsLeft, moves, newGame, setNewGame, setSecondsLeft, setGameState };
 };
 
 const Game = (props) => {
@@ -46,12 +48,15 @@ const Game = (props) => {
 		candidateNums,
 		secondsLeft,
 		moves,
+		newGame,
+		setNewGame,
 		setGameState,
 	} = useGameState();
 
 	const candidatesAreWrong = utils.sum(candidateNums) > stars;
 	const gameStatus =
-		availableNums.length === 0 ? 'won' : secondsLeft === 0 ? 'lost' : 'active';
+		availableNums.length === 0 ? 'won' : secondsLeft === 0 ? 'lost' : 
+		newGame === 0 ? 'new' : 'active';
 
 	const numberStatus = (number) => {
 		if (!availableNums.includes(number)) {
@@ -66,7 +71,7 @@ const Game = (props) => {
 	};
 
 	const onNumberClick = (number, currentStatus) => {
-		if (currentStatus === 'used' || secondsLeft === 0) {
+		if (currentStatus === 'used' || secondsLeft === 0 || newGame === 0) {
 			return;
 		}
 
@@ -86,7 +91,11 @@ const Game = (props) => {
 			<div className="body">
 				<div className="left">
 					{gameStatus !== 'active' ? (
-						<PlayAgain onClick={props.startNewGame} gameStatus={gameStatus} />
+						(secondsLeft === 10 && newGame !== 1) ? (
+							<StartGame start={() => setNewGame(1)}/>
+						) : (
+							<PlayAgain onClick={props.startNewGame} gameStatus={gameStatus} />
+						)
 					) : (
 						<StarsDisplay count={stars} />
 					)}
