@@ -1,4 +1,6 @@
-# Getting Started with Create React App
+# star-play
+
+![starplay](https://user-images.githubusercontent.com/66945794/209657238-1291739f-76c1-4556-ba0e-689963e84f49.png)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
