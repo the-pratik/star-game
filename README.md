@@ -1,6 +1,6 @@
 # star-play
 
-![starplay](https://user-images.githubusercontent.com/66945794/209657238-1291739f-76c1-4556-ba0e-689963e84f49.png)
+<img width="960" alt="image" src="https://github.com/the-pratik/star-play/assets/66945794/e09f8b7a-7bf4-4755-be87-ffec9c697792">
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
