@@ -1,21 +1,21 @@
-import React from 'react';
+import React from "react";
 
 const PlayNumber = (props) => (
-	<button
-		className="number"
-		style={{ backgroundColor: colors[props.status] }}
-		onClick={() => props.onClick(props.number, props.status)}
-	>
-		{props.number}
-	</button>
+  <button
+    className="number"
+    style={{ backgroundColor: colors[props.status] }}
+    onClick={() => props.onClick(props.number, props.status)}
+  >
+    {props.number}
+  </button>
 );
 
 // Color Theme
 const colors = {
-	available: '#fff2b4',
-	used: 'lightgreen',
-	wrong: 'lightcoral',
-	candidate: 'deepskyblue',
+  available: "#8b8b8b",
+  used: "#286c1d",
+  wrong: "#f08080",
+  candidate: "#008cbb",
 };
 
 export default PlayNumber;

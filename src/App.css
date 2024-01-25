@@ -1,3 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap");
+
+html {
+  background: #162637;
+}
+
 .App {
   text-align: center;
 }
@@ -40,9 +46,9 @@
 /* Custom Css */
 
 .game {
-  max-width: 500px;
+  max-width: 600px;
   margin: 0 auto;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: "Pixelify Sans", sans-serif;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -63,29 +69,32 @@
   text-align: center;
   width: 50%;
   border: thin solid #ddd;
+  padding: 20px;
+  border-top-left-radius: 30px;
 }
 
 .right {
   text-align: center;
-  padding: 10px;
+  padding: 20px;
   width: 50%;
   border: thin solid #ddd;
+  border-bottom-right-radius: 30px;
 }
 
-@media all and (max-width:828px)
-{
-    .body
-    {
-        display: flex;
-        flex-direction: column;
-        width: 250px;
-    }
+@media all and (max-width: 828px) {
+  .body {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    margin: auto;
+  }
 
-    .left, .right {
-      width: 100%;
-      padding: 10px 0;
-      height: 195px;
-    }
+  .left,
+  .right {
+    width: 100%;
+    padding: 10px 0;
+    min-height: 195px;
+  }
 }
 
 .star {
@@ -94,30 +103,44 @@
 }
 
 .star:after {
-  content: '\2605';
+  content: "\2605";
   font-size: 45px;
+  color: #d5d500;
+}
+
+.wonMessage {
+  color: #fff;
+  font-size: xx-large;
 }
 
 .btn {
+  margin-top: 10px;
   width: 100px;
-  background-color: #fff;
+  font-family: "Pixelify Sans", sans-serif;
+  font-size: larger;
+  background-color: #282c34;
+  color: #fff;
   border-radius: 10px;
-  border: 1px solid lightgreen;
+  border: 1px solid #61dafb;
   padding: 5px;
 }
 
 .btn:hover {
-  background-color: lightblue;
+  background-color: #add8e6;
+  color: #162637;
+  transition-delay: 1s ease;
 }
 
 .number {
-  background-color: #fff2b4;
-  border: thin solid #ddd;
-  width: 45px;
-  height: 45px;
+  background-color: #8b8b8b;
+  color: #fff;
+  border: thin solid #fff;
+  width: 55px;
+  height: 55px;
   border-radius: 50%;
   margin: 10px;
-  font-size: 25px;
+  font-family: "Pixelify Sans", sans-serif;
+  font-size: 39px;
 }
 
 .number:focus,
@@ -130,10 +153,11 @@
   color: #666;
   margin-top: 3px;
   margin-left: 3px;
+  font-size: xx-large;
 }
 
 .game-done .message {
   font-size: 250%;
   font-weight: bold;
-  margin: 65px 0 0;
+  margin: 55px 0 0;
 }
